@@ -9,13 +9,16 @@ class Exceptions extends \Exception
 {
 	//异常消息
 	private $excmsg='';
+	//异常对象
 	private $exc='';
 
-	public function __construct($e)
+	public function __construct($e='')
 	{
-		$this->exc=$e;
-		//处理异常
-		$this->delExc();
+		if(!empty($e)){
+			$this->exc=$e;
+			//处理异常
+			$this->delExc();
+		}
 	}
 
 
@@ -24,15 +27,17 @@ class Exceptions extends \Exception
 	*/
 	public function delExc()
 	{
+
 		//报告错误信息
 		$this->excmsg='异常错误信息：'.$this->exc->getMessage();
-		$this->excmsg.=empty($this->exc->getCode())?'':'错误码：'.$this->exc->getCode();
+		$this->excmsg.=empty($this->exc->getCode())?'':'异常码：'.$this->exc->getCode();
 		$this->excmsg.="<br/>";
-		$this->excmsg.="错误文件：".$this->exc->file;
-		$this->excmsg.="错误行号：".$this->exc->line;
+		$this->excmsg.='异常文件：'.$this->exc->file;
+		$this->excmsg.='异常行号：'.$this->exc->line;
 		echo $this->excmsg;
 
 		//写入日志
+		new \core\lib\Logging($this->excmsg);
 	}
 
 }

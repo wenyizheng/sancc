@@ -7,17 +7,21 @@ namespace core\lib;
 
 class Route
 {
+
+
 	/*
 	路由执行
-
 	@return [string] 错误信息
 	*/
 	public static function route()
 	{
+		$object=new static();
+		
 		//获取访问请求并拆分
 		$access=explode('/',substr($_SERVER['REQUEST_URI'],19));
-		/*if(empty($access['2'])||$this->routeCheck($access)!==true){
-			throw new \Exception("路由访问错误");
+
+		/*if(empty($access['2'])||$object->routeCheck($access)!==true){
+			throw new \Exception("路由访问格式错误");
 		}*/
 	}
 	/*
@@ -28,12 +32,23 @@ class Route
 	*/
 	public function routeCheck(Array $route)
 	{
-		//检测模块是否存在
-		is_dir($route['0'])?'':function(){return false;};
-		//检测控制器是否存在
-		is_dir($route['1'])?'':function(){return false;};
-		//检测操作是否存在
-		is_dir($route['2'])?'':function(){return false;};
+		for($i=0;$i<=2;$i++){
+			if(!file_exists(PROJECT.$route[$i])){
+				break;
+			}
+		}
+		//读取配置判断路由规则
+
+		//查找出问题的地方
+		switch ($i) {
+			case '0':
+				# code...
+				break;
+			
+			default:
+				# code...
+				break;
+		}
 
 		return true;
 	}
