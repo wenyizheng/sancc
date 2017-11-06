@@ -12,17 +12,13 @@ class Route
 
 	@return [string] 错误信息
 	*/
-	public function route()
+	public static function route()
 	{
 		//获取访问请求并拆分
 		$access=explode('/',substr($_SERVER['REQUEST_URI'],19));
-		if(empty($access['2'])||$this->routeCheck($access)!==true){
-			return '路由访问错误';
-			die();
-		}
-
-		
-		
+		/*if(empty($access['2'])||$this->routeCheck($access)!==true){
+			throw new \Exception("路由访问错误");
+		}*/
 	}
 	/*
 	检测路由各部分是否正确
