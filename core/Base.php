@@ -1,13 +1,11 @@
 <?php
+include 'lib'.DIRECTORY_SEPARATOR.'Register.php';
+
+use \core\lib\config\BuildConfig;
 
 //自动加载器
 spl_autoload_register(function($class){
-		//根目录
-		$basedir=__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR;
-		//目录
-		$dir=$basedir.str_replace('/',DIRECTORY_SEPARATOR,trim($class)).'.php';
-		//引入文件
-		include $dir;
+		\core\lib\Register::autoRegister($class);
 	}	
 );
 
@@ -19,5 +17,10 @@ set_exception_handler(function($e){
 set_error_handler(function($errno,$errstr,$errfile,$errline){
 	new \core\lib\Errors($errno,$errstr,$errfile,$errline);
 });
+
+//加载用户配置文件
+
 //调用路由
-\core\lib\Route::route();
+//\core\lib\Route::route();
+$route=new \core\lib\Route();
+$route->findOperateClass($route->getRouteInfo());
