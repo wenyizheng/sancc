@@ -21,7 +21,7 @@ class BuildConfig extends Config
 		@param array|string $configname 特定配置名称
 		@return array 选定的配置信息数组
 	*/
-	public static function Configs($configname)
+	public static function configs($configname)
 	{
 		self::$buildconfig=new static();
 		return self::$buildconfig->getConfig($configname);

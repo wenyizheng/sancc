@@ -22,5 +22,6 @@ set_error_handler(function($errno,$errstr,$errfile,$errline){
 
 //调用路由
 //\core\lib\Route::route();
-$route=new \core\lib\Route();
-$route->findOperateClass($route->getRouteInfo());
+$route=new \core\lib\route\Run();
+$route->execute();
+$route->abc();
