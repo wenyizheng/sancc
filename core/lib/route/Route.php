@@ -41,9 +41,11 @@ class Route
 		$accessuri=str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['REQUEST_URI']);
 		
 		//拆分
-		$access=explode('/',ltrim($accessuri,'/'));
-
-		$this->accessoperate=array_slice($access,0,3);
+		$reg="~(?<module>((?<=/)\w+(?=/)))/(?<controller>((?<=/)\w+(?=/)))/(?<operate>((?<=/)\w+(?=[/?])))~";
+		
+		preg_match($reg, $accessuri,$access);
+		
+		$this->accessoperate=$access;//array_slice($access,0,3);
 		
 		return $this->accessoperate;
 		
@@ -59,23 +61,23 @@ class Route
 		
 		//读取路由配置规则
 		//
-		$check=PROJECT.$route['0'];
+		$check=PROJECT.$route['module'];
 
-		if(empty($route['2'])){
+		if(empty($route['module'])||empty($route['controller'])||empty($route['operate'])){
 			throw new \Exception('路由访问错误');
 		}
 
 		if(!file_exists($check)){
 			throw new \Exception('非法模块');
 		}
-		$check.=DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.$route['1'].'.php';
+		$check.=DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.$route['controller'].'.php';
 		if(!file_exists($check)){
 			
 			throw new \Exception('非法控制器');
 		}
 		
 		$operateobject=$this->findOperateClass($route);
-		if(!is_object($operateobject)||empty($route['2'])||!method_exists($operateobject,$route['2'])){
+		if(!is_object($operateobject)||empty($route['operate'])||!method_exists($operateobject,$route['operate'])){
 			
 			throw new \Exception('非法操作');
 		}
@@ -92,8 +94,8 @@ class Route
 	{
 		
 		//操作类
-		$operateclass=DIRECTORY_SEPARATOR.$route['0'].DIRECTORY_SEPARATOR;
-		$operateclass.='controller'.DIRECTORY_SEPARATOR.$route['1'];
+		$operateclass=DIRECTORY_SEPARATOR.$route['module'].DIRECTORY_SEPARATOR;
+		$operateclass.='controller'.DIRECTORY_SEPARATOR.$route['controller'];
 		if(!$operateobject=new $operateclass){
 			throw new \Exception("非法控制器");
 		}

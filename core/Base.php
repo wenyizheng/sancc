@@ -1,5 +1,7 @@
 <?php
 include 'lib'.DIRECTORY_SEPARATOR.'Register.php';
+//快速函数
+include 'lib'.DIRECTORY_SEPARATOR.'func'.DIRECTORY_SEPARATOR.'FastFunc.php';
 
 use \core\lib\config\BuildConfig;
 
@@ -24,4 +26,5 @@ set_error_handler(function($errno,$errstr,$errfile,$errline){
 //\core\lib\Route::route();
 $route=new \core\lib\route\Run();
 $route->execute();
-$route->abc();
+//$route->abc();
+var_dump(Param('name'));

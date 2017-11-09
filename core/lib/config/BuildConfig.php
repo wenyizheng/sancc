@@ -26,4 +26,5 @@ class BuildConfig extends Config
 		self::$buildconfig=new static();
 		return self::$buildconfig->getConfig($configname);
 	} 
+
 }

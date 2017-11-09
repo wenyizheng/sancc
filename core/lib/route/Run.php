@@ -13,7 +13,7 @@ class Run extends Route
 	public function __construct()
 	{
 		$this->paramobj=new RouteParams();
-		$this->paramobj->getParam();
+		//$this->paramobj->getParam();
 	}
 
 	/*
@@ -28,7 +28,7 @@ class Run extends Route
 		$operateproject=$this->findOperateClass($this->accessoperate);
 
 		//执行路由操作
-		$operate=$this->accessoperate['2'];
+		$operate=$this->accessoperate['operate'];
 		$operateproject->$operate();
 	}
 
