@@ -41,7 +41,7 @@ class Route
 		$accessuri=str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['REQUEST_URI']);
 		
 		//拆分
-		$reg="~(?<module>((?<=/)\w+(?=/)))/(?<controller>((?<=/)\w+(?=/)))/(?<operate>((?<=/)\w+(?=[/?])))~";
+		$reg="#(?<module>((?<=/)\w+(?=/)))/(?<controller>((?<=/)\w+(?=/)))/(?<operate>((?<=/)\w+((?=[/?])|$)))#";
 		
 		preg_match($reg, $accessuri,$access);
 		

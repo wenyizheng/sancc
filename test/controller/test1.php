@@ -1,11 +1,14 @@
 <?php
 namespace test\controller;
 
-class Test1
+use \core\lib\controller\Controller;
+
+class Test1 Extends Controller
 {
 	public function test1()
 	{
 		echo "这是测试一方法";
+		var_dump($this->Param()->put());
 	}
 
 	public function test2()
