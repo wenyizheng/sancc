@@ -45,8 +45,13 @@ class Route
 		
 		preg_match($reg, $accessuri,$access);
 		
-		$this->accessoperate=$access;//array_slice($access,0,3);
-		
+		foreach($access as $k=>$v){
+			if(!is_numeric($k)){
+				$this->accessoperate[$k]=$v;
+			}
+		}
+
+
 		return $this->accessoperate;
 		
 	}
