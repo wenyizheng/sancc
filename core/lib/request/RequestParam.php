@@ -1,17 +1,18 @@
 <?php
-namespace core\lib\route;
-use core\lib\route\Route;
-use core\lib\Func;
+namespace core\lib\request;
 
-class RouteParams extends Route
+use \core\lib\request\Request;
+use \core\lib\Func;
+
+
+class RequestParam extends Request
 {
-	
-	
+
 	//请求参数信息
 	protected $accessparam='';
 	
 	//请求方式
-	protected $method='';
+	protected $method='AUTO';
 
 	//put delete等方式获取的参数
 	protected $phpinput='';
@@ -48,9 +49,31 @@ class RouteParams extends Route
 	}
 
 	/*
-		获取路由参数
-		@param string|array $paramname 路由参数名称 可选
-		@return string|array 路由参数值
+		获取请求方法
+		@return string 请求方法
+	*/
+	public function method()
+	{
+		$method=$this->request['REQUEST_METHOD'];
+
+		return $method;
+	}
+
+	/*
+		获取请求头信息
+		@return array 头信息数组
+	*/
+	public function requestHeader()
+	{
+		return $this->requestheader;
+
+	}
+
+
+	/*
+		获取请求参数
+		@param string|array $paramname 参数名称 可选
+		@return string|array 参数值
 	*/
 	public function getParam($paramname='')
 	{
@@ -96,7 +119,7 @@ class RouteParams extends Route
 	{
 
 		//判断添加类型
-		$method=empty($this->method)?'AUTO':$this->method;
+		$method=empty($method)?$this->method:'AUTO';
 
 		//键值方式添加
 		
@@ -106,13 +129,13 @@ class RouteParams extends Route
 
 	/*
 		GET获取请求参数
-		@param string|array $paramname 路由参数名称 可选
-		@return string|array 路由参数值
+		@param string|array $paramname 参数名称 可选
+		@return string|array 参数值
 	*/
 	public function get($paramname='')
 	{
 
-		//路由参数数组
+		//参数数组
 		$backparam=[];
 
 		//判断路由读取方式
@@ -160,13 +183,13 @@ class RouteParams extends Route
 
 	/*
 		POST方式获取请求参数
-		@param string|array $paramname 路由参数名称 可选
-		@return string|array 路由参数值
+		@param string|array $paramname 参数名称 可选
+		@return string|array 参数值
 
 	*/
 	public function post($paramname='')
 	{
-		//路由参数数组
+		//参数数组
 		$backparam=[];
 
 		$this->accessparam['POST']=$_POST;
@@ -188,8 +211,8 @@ class RouteParams extends Route
 
 	/*
 		PUT获取请求参数
-		@param string|array $paramname 路由参数名称 可选
-		@return string|array 路由参数值
+		@param string|array $paramname 参数名称 可选
+		@return string|array 参数值
 	*/
 	public function put($paramname='')
 	{
@@ -198,8 +221,8 @@ class RouteParams extends Route
 
 	/*
 		DELETE获取请求参数
-		@param string|array $paramname 路由参数名称 可选
-		@return string|array 路由参数值
+		@param string|array $paramname 参数名称 可选
+		@return string|array 参数值
 	*/
 	public function delete($paraname='')
 	{
@@ -208,8 +231,8 @@ class RouteParams extends Route
 
 	/*
 		PATCH获取请求参数
-		@param string|array $paramname 路由参数名称 可选
-		@return string|array 路由参数值
+		@param string|array $paramname 参数名称 可选
+		@return string|array 参数值
 	*/
 	public function patch($paramname='')
 	{
@@ -218,7 +241,7 @@ class RouteParams extends Route
 
 	/*
 		put\delete等方式获取信息方式
-		@param string|array $paramname 路由参数名称 可选
+		@param string|array $paramname 参数名称 可选
 
 	*/
 	public function phpinput($paramname='')
@@ -253,7 +276,7 @@ class RouteParams extends Route
 		}
 
 
-		//路由参数数组
+		//参数数组
 		$backparam2=[];
 
 		$this->accessparam[$method]=$backparam;

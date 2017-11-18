@@ -1,7 +1,11 @@
 <?php
-namespace core\lib\route;
+namespace core\lib;
+
+use core\lib\request\Request;
+use core\lib\request\RequestParam;
+
 use core\lib\route\Route;
-use core\lib\route\RouteParams;
+
 
 class Run extends Route
 {
@@ -12,7 +16,7 @@ class Run extends Route
 
 	public function __construct()
 	{
-		$this->paramobj=new RouteParams();
+		$this->paramobj=new RequestParam();
 		//$this->paramobj->getParam();
 	}
 
@@ -25,11 +29,11 @@ class Run extends Route
 		$this->routeCheck($this->getRouteOperate());
 		
 		//获取操作对象
-		$operateproject=$this->findOperateClass($this->accessoperate);
+		$executeproject=$this->findOperateClass($this->accessoperate);
 
 		//执行路由操作
-		$operate=$this->accessoperate['operate'];
-		$operateproject->$operate();
+		$execute=$this->accessoperate['operate'];
+		$executeproject->$execute();
 	}
 
 

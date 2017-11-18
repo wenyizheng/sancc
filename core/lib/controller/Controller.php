@@ -16,7 +16,7 @@ class Controller
 		@param string       $configvalue 配置值 可选
 		@return obj Configparam对象|string array 配置项值
 	*/
-	public function Config($configname='',$configvalue='')
+	public function config($configname='',$configvalue='')
 	{
 		if(!empty($configname)&&empty($configvalue)){
 			return	Func::Config($configname);
@@ -32,7 +32,7 @@ class Controller
 		@param string  $paramvalue 参数值  可选
 		@return obj  RouteParams对象|string 参数值
 	*/
-	public function Param($paramname='',$paramvalue='')
+	public function param($paramname='',$paramvalue='')
 	{
 		if(!empty($paramname)&&empty($paramvalue)){
 			return Func::Param($paramname);
@@ -43,5 +43,13 @@ class Controller
 		}
 
 		return Func::Param();
+	}
+
+	/*
+		验证函数
+	*/
+	public function verify($faild='',$rule='',$message='')
+	{
+		return Func::Verify($faild,$rule,$message);
 	}
 }

@@ -34,6 +34,6 @@ register_shutdown_function(function(){
 
 //调用路由
 //\core\lib\Route::route();
-$route=new \core\lib\route\Run();
+$route=new \core\lib\Run();
 $route->execute();
 
