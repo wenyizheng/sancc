@@ -4,6 +4,8 @@ namespace test\controller;
 use \core\lib\controller\Controller;
 use \core\lib\Verify;
 
+use \core\lib\view\View;
+
 class Test1 Extends Controller
 {
 	public function test1()
@@ -21,7 +23,8 @@ class Test1 Extends Controller
 	{
 		$verify=new Verify();
 
-		var_dump($this->verify('123','/\d/'));
+		$view=new View();
+		$view->viewCheck();
 		echo "这是测试二方法";
 	}
 }
