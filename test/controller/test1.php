@@ -5,6 +5,7 @@ use \core\lib\controller\Controller;
 use \core\lib\Verify;
 
 use \core\lib\view\View;
+use \core\lib\view\ViewRender;
 
 class Test1 Extends Controller
 {
@@ -23,8 +24,11 @@ class Test1 Extends Controller
 	{
 		$verify=new Verify();
 
-		$view=new View();
-		$view->viewCheck();
-		echo "这是测试二方法";
+		$view=new ViewRender(PROJECT.'test/view/testview');
+		$view->setvar(['c'=>123,'d'=>456,'e'=>['1'=>1,'2'=>2,'3'=>3]]);
+		$view->render();
+
+
+		
 	}
 }
