@@ -1,6 +1,7 @@
 <?php
 namespace core\lib\view;
 
+use core\lib\Func;
 /*
 	视图渲染类
 
@@ -26,6 +27,8 @@ class ViewRender
 	private static $checkempty=false;
 	//notempty判断变量
 	private static $checknotempty=false;
+	//if判断变量
+	private static $checkif=false;
 
 	//系统内置标签
 	protected $labels=[
@@ -51,9 +54,12 @@ class ViewRender
 			throw new \Exception('模板文件不存在');
 		}
 		
-		$this->path=$path;
 
 		$this->contents=file_get_contents($path.'.html');
+		//获取操作文件名
+		$path=explode('/',$path);
+
+		$this->path=PROJECT.Func::config('app').DS.'cache'.DS.'template'.DS.array_pop($path);
 	
 		if($this->contents===false){
 			throw new \Exception('模板文件读取错误');
@@ -76,8 +82,8 @@ class ViewRender
 	}
 
 	/*
-		渲染视图文件
-
+		渲染视图文件并输出
+		
 	*/
 	public function render()
 	{
@@ -88,18 +94,23 @@ class ViewRender
 		$this->r_empty();
 		$this->r_notempty();
 		$this->r_if();
-		var_dump($this->contents);
 		$this->r_var();
-		var_dump($this->contents);
-
+		
 		$file=fopen($this->path.'.php','w');
 		fwrite($file, "<?php".$this->contents);
-		echo fread($file, filesize($this->path.'.php'));
+		fclose($file);
+
+		//输出内容
+		include($this->path.'.php');
+
+		
 	}
 
 
 	/*
 		变量赋值
+
+		{$变量名}
 	*/
 	public function r_var()
 	{
@@ -118,37 +129,60 @@ class ViewRender
 	/*
 		if else 判断
 
+		{if (条件)}
+		内容
+		单条时{/if}
+		{elseif (条件)}
+		内容
+		{else}
+		内容
+		{/else}
+
 	*/
 	public function r_if()
 	{
 		//匹配if开始位置
-		$reg1="#\{if[^)]{0,*}\((?<judge1>[^}]*)\)\}(?<contents1>[^{]*)#";
+		$reg1="#\{if[^(]*\((?<judge1>[^)]*)\)\}(?<contents1>[^{]*)#";
 		//匹配else if开始位置
-		$reg2="#\{elseif[^)]{0,*}\((?<judge2>[^}]*)\)\}(?<contents2>[^{]*)#";
+		$reg2="#\{elseif[^)]*\((?<judge2>[^)]*)\)\}(?<contents2>[^{]*)#";
 		//匹配else开始位置
 		$reg3="#\{else\}(?<contents3>[^{]*)#";
 		//匹配else结束位置
-		$reg4="#\{\/else\}";
+		$reg4="#\{\/else\}#";
+		//匹配if结束位置
+		$reg5="#\{\/if\}#";
 
 		$this->contents=preg_replace_callback($reg1,function($param){
-			return "<?php echo if({$param['judge1']}){\"{$param['contents1']}\"";
+			self::$checkif=true;
+			return "<?php if({$param['judge1']}) {echo \"{$param['contents1']}\"";
 		},$this->contents);
 
 		$this->contents=preg_replace_callback($reg2,function($param){
-			return "echo }elseif({$param['judge2']}){\"{$param['contents2']}\"";
+			return ";}elseif({$param['judge2']}){echo \"{$param['contents2']}\"";
 		},$this->contents);
 
 		$this->contents=preg_replace_callback($reg3,function($param){
-			return "echo }else\{\"{$param['content3']}\"\}";
+			return " ;}else{echo \"{$param['contents3']}\"";
 		},$this->contents);
 
 		$this->contents=preg_replace_callback($reg4,function($param){
-			return "?>";
+			return ";}?>";
 		},$this->contents);
+		$this->contents=preg_replace_callback($reg5,function($param){
+			if(self::$checkif==true){
+				self::$checkif=false;
+				return ";}?>";
+			}
+		},$this->contents);
+
 	}
 
 	/*
 		empty 判断
+
+		{empty name="变量名"}
+		内容
+		{/empty}
 
 	*/
 	public function r_empty()
@@ -178,6 +212,9 @@ class ViewRender
 	/*
 		notempty 判断
 
+		{notempty name="变量名"}
+		内容
+		{/notempty}
 	*/
 	public function r_notempty()
 	{
@@ -204,6 +241,10 @@ class ViewRender
 
 	/*
 		for 循环
+
+		{for name="循环变量名" start="起始数" end="结束数"}
+		内容
+		{/for}
 	*/
 	public function r_for()
 	{
@@ -225,6 +266,10 @@ class ViewRender
 
 	/*
 		foreach 循环遍历
+
+		{foreach name="被循环变量名" key="key值名称" value="value值名称"}
+		内容
+		{/foreach}
 	*/
 	public function r_foreach()
 	{
