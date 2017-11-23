@@ -17,7 +17,14 @@ return[
 	/*
 		视图模板
 	*/
-	
+	//后缀名
+	'suffix'=>'.html',
+	//缓存时间(秒) 
+	'cache_time'=>'',
+	//模板变量
+	'replace_var'=>[
+		'name'=>'wenyizheng',
+	],
 
 	
 ];

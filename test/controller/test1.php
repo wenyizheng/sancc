@@ -24,7 +24,7 @@ class Test1 Extends Controller
 	{
 		$verify=new Verify();
 
-		$view=new ViewRender(PROJECT.'test/view/testview');
+		$view=new ViewRender(PROJECT.'test/test1/testview');
 		$view->setvar(['c'=>123,'d'=>456,'e'=>['1'=>1,'2'=>2,'3'=>3]]);
 		$view->render();
 

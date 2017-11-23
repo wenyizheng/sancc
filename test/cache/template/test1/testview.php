@@ -20,5 +20,15 @@
 		" ;}else{echo "
 		else
 		";}?>
+		wenyizheng
+		<?php  
+		echo 'abc';
+		;?>
+		111111111111
+{block name="abc"}
+{/block}
+111111111111111
+
+		
 	</body>
 </html>

@@ -20,5 +20,9 @@
 		" ;}else{echo "
 		else
 		";}?>
+		wenyizheng
+		<?php  
+		echo 'abc';
+		;?>
 	</body>
 </html>

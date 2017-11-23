@@ -9,14 +9,26 @@ use core\lib\Func;
 
 class ViewRender
 {
+	//1695587776
 	//文件路径
 	protected $path='';
+
+	//文件目录
+	protected $pathdir='';
 
 	//模板文件内容
 	protected $contents='';
 
-	//替换完成后的内容
-	protected $iscontents='';
+	//模板配置信息
+	protected $config=[
+		//源文件后缀
+		'suffix'=>'',
+		//缓存更新时间
+		'cache_time'=>'',
+		//模板变量
+		'replace_var'=>'',
+
+	];
 
 	//替换的变量
 	protected $replacevar=[
@@ -37,6 +49,22 @@ class ViewRender
 
 	public function __construct($path)
 	{
+		//获取模板的配置
+		foreach($this->config as $k=>$v){
+			//模板变量
+			if($k=='replace_var'){
+				if(!empty(Func::config($k))){
+					$this->setvar(Func::config($k));
+					$this->config[$k]=Func::config($k);
+				}
+			}
+			//配置
+			if(!empty(Func::config($k))){
+				$this->config[$k]=Func::config($k);
+			}
+		}
+
+
 		$this->getcontents($path);
 	}
 
@@ -49,23 +77,86 @@ class ViewRender
 	public function getcontents($path)
 	{
 
+		$htmldir=substr($path,0,strpos($path,Func::config('app'))+strlen(Func::config('app')));
+		//文件目录
+		$dirtest=substr($path,strpos($path,Func::config('app'))+strlen(Func::config('app')));
+		$this->pathdir=$htmldir.DS.'view'.DS.(explode('/',$dirtest)['1']).DS;
+
+		$htmldir.=DS.'view'.substr($path,strpos($path,Func::config('app'))+strlen(Func::config('app'))).'.html';
+
+		
+
+
 		//检测模板文件是否存在
-		if(!file_exists($path.'.html')){
+		if(!file_exists($htmldir)){
 			throw new \Exception('模板文件不存在');
 		}
 		
 
-		$this->contents=file_get_contents($path.'.html');
-		//获取操作文件名
-		$path=explode('/',$path);
+		$this->contents=file_get_contents($htmldir);
 
-		$this->path=PROJECT.Func::config('app').DS.'cache'.DS.'template'.DS.array_pop($path);
-	
+		//E:\wamp\www\project\core\..\test\cache\template\test\testview.php
+		$beginpath=substr($path,0,strpos($path,Func::config('app'))+strlen(Func::config('app'))).DS.'cache'.DS.'template'.DS;
+		
+		$endpath=substr($path,strpos($path,Func::config('app'))+strlen(Func::config('app')));
+		
+		$path=$beginpath.$endpath;
+
+		//获取操作文件名
+		$arraypath=explode('/',$path);
+		//编译后的模板文件名
+		$tempname=array_pop($arraypath);
+		//模板中的控制器路径
+		$tempdir=substr($path,0,strpos($path,$tempname));
+		//检测模板中的控制器是否存在，不存在则创建
+		if(!is_dir($tempdir)){
+			mkdir($tempdir);
+		}
+		
+		$this->path=$path.'.php';
+		
+
+		//$this->path=PROJECT.Func::config('app').DS.'cache'.DS.'template'.DS.array_pop($path).'.php';
+		
 		if($this->contents===false){
 			throw new \Exception('模板文件读取错误');
 		}
 
 	}
+
+
+	/*
+		渲染视图文件并输出
+		
+	*/
+	public function render()
+	{
+		//判断文件是否存在及是否过缓存时间	
+		if(is_file($this->path)&&$this->config['cache_time']>(time()-filemtime($this->path))){
+			include($this->path);
+			return '';
+		}
+		
+		$this->r_extends();
+		$this->r_block();
+		$this->r_foreach();
+		$this->r_for();
+		$this->r_empty();
+		$this->r_notempty();
+		$this->r_if();
+		$this->r_php();
+		$this->r_var();
+		
+		$file=fopen($this->path,'w');
+		fwrite($file, "<?php".$this->contents);
+		fclose($file);
+
+		//输出内容
+		include($this->path);
+
+		
+	}
+
 
 	/*
 		设置替换变量
@@ -82,30 +173,85 @@ class ViewRender
 	}
 
 	/*
-		渲染视图文件并输出
-		
+		继承判断
+
+		{extends name="模板文件相对路径"}
+
 	*/
-	public function render()
+	public function r_extends()
 	{
-		
-		
-		$this->r_foreach();
-		$this->r_for();
-		$this->r_empty();
-		$this->r_notempty();
-		$this->r_if();
-		$this->r_var();
-		
-		$file=fopen($this->path.'.php','w');
-		fwrite($file, "<?php".$this->contents);
-		fclose($file);
+		//匹配继承开始部分
+		$reg1="#\{extends[^}]*name=\"(?<name>[^}]*)\"\}#";
 
-		//输出内容
-		include($this->path.'.php');
+		$this->contents=preg_replace_callback($reg1,function($param){
+			
+			if(is_file($this->pathdir.$param['name'])){
 
-		
+				$extendscontent=file_get_contents($this->pathdir.$param['name']);
+
+				/*
+					查找其中的block部分
+				*/
+				//block开始部分
+				/*$reg2="#\{block[^}]*name=\"(?<name>[^}]*)\"\}#";
+				//block结束部分
+				$reg3="#\{\/block\}#";
+
+				$extendscontent=preg_replace_callback($reg2,function($param){
+					return "\{exten\}";
+				},$extendscontent);*/
+
+				return $extendscontent;
+			}else{
+				throw new \Exception("继承模板文件错误".$param['name']);
+			}
+			
+		},$this->contents);
 	}
 
+	/*
+		模板区块继承判断
+	*/
+	public function r_block()
+	{
+		//匹配block开始位置
+		$reg1="#\{extendblock[^}]*name=\"(?<name>[^}]*)\"\}(?<contents>[^{]*)\{\/extendblock\}#";
+		
+		$this->contents=preg_replace_callback($reg1,function($param){
+			//匹配父模板中block的位置
+			$reg2="#\{block[^}]*name=\"{$param['name']}\"\}[^{]*\{\/block\}#";
+			
+			$this->contents=preg_replace_callback($reg2,function($param2)use($param){
+				var_dump($param2);
+				return $param['contents'];
+				
+			},$this->contents);
+		},$this->contents);
+
+	}
+
+
+	/*
+		原生php
+		{php}
+		内容
+		{/php}
+	*/
+	public function r_php()
+	{
+		//匹配php开始位置
+		$reg1="#\{php\}(?<contents>[^{]*)#";
+		//匹配php结束位置
+		$reg2="#\{\/php\}#";
+
+		$this->contents=preg_replace_callback($reg1,function($param){
+			return "<?php  {$param['contents']}";
+		},$this->contents);
+
+		$this->contents=preg_replace_callback($reg2,function($param){
+			return ";?>";
+		},$this->contents);
+	}
 
 	/*
 		变量赋值
