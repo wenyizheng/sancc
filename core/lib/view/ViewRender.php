@@ -41,6 +41,8 @@ class ViewRender
 	private static $checknotempty=false;
 	//if判断变量
 	private static $checkif=false;
+	//block存储量
+	private $block='';
 
 	//系统内置标签
 	protected $labels=[
@@ -218,14 +220,13 @@ class ViewRender
 		$reg1="#\{extendblock[^}]*name=\"(?<name>[^}]*)\"\}(?<contents>[^{]*)\{\/extendblock\}#";
 		
 		$this->contents=preg_replace_callback($reg1,function($param){
-			//匹配父模板中block的位置
-			$reg2="#\{block[^}]*name=\"{$param['name']}\"\}[^{]*\{\/block\}#";
-			
-			$this->contents=preg_replace_callback($reg2,function($param2)use($param){
-				var_dump($param2);
-				return $param['contents'];
-				
-			},$this->contents);
+			$this->block=$param;
+		},$this->contents);
+
+		//匹配父模板中block的位置
+		$reg2="#\{block[^}]*name=\"{$this->block['name']}\"\}[^{]*\{\/block\}#";
+		$this->contents=preg_replace_callback($reg2,function($param2){
+			return $this->block['contents'];
 		},$this->contents);
 
 	}
