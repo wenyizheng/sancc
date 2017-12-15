@@ -1,0 +1,105 @@
+#time:2017-11-30 08:36:42
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：86
+
+#time:2017-11-30 08:40:34
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：86
+
+#time:2017-11-30 08:49:15
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 08:49:52
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 08:50:31
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 09:01:01
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 09:01:37
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 09:25:19
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 09:25:20
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 09:26:19
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 09:27:05
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：87
+
+#time:2017-11-30 09:29:08
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：88
+
+#time:2017-11-30 09:29:54
+#错误编号：1错误信息：Call to a member function find() on null错误文件：E:\wamp\www\project\test\model\Test.php错误行数：14
+
+#time:2017-11-30 09:30:20
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：88
+
+#time:2017-11-30 09:31:12
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:31:52
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:32:37
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:32:59
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:33:37
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:33:50
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:34:28
+#错误编号：1错误信息：Access to undeclared static property: core\lib\db\Db::$implement错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：42
+
+#time:2017-11-30 09:34:59
+#错误编号：1错误信息：Undefined class constant 'implement'错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：42
+
+#time:2017-11-30 09:35:23
+#错误编号：1错误信息：Access to undeclared static property: core\lib\db\Db::$implement错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：42
+
+#time:2017-11-30 09:35:44
+#错误编号：4错误信息：syntax error, unexpected '->' (T_OBJECT_OPERATOR)错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：42
+
+#time:2017-11-30 09:36:49
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:36:59
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:38:19
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：88
+
+#time:2017-11-30 09:38:21
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：88
+
+#time:2017-11-30 09:38:28
+#错误编号：1错误信息：Call to a member function query() on null错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：88
+
+#time:2017-11-30 09:46:25
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:46:50
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:47:16
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:47:31
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:47:58
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+
+#time:2017-11-30 09:48:36
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：62
+

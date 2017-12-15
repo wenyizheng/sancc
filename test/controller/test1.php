@@ -7,6 +7,10 @@ use \core\lib\Verify;
 use \core\lib\view\View;
 use \core\lib\view\ViewRender;
 
+use \core\lib\db\Db;
+
+use \test\model\Test;
+
 class Test1 Extends Controller
 {
 	public function test1()
@@ -30,5 +34,14 @@ class Test1 Extends Controller
 
 
 		
+	}
+
+	public function test3()
+	{
+		//var_dump(hash('sha256','abcwwssgg789456'));
+		/*$db=new Db();
+		$db->where('ab','>','3')->find();*/
+		$testmodel=new Test();
+		var_dump($testmodel->login());
 	}
 }

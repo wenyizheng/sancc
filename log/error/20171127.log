@@ -1,0 +1,9 @@
+#time:2017-11-27 06:45:15
+#错误编号：1错误信息：Call to undefined function core\lib\db\is_set()错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：21
+
+#time:2017-11-27 08:09:44
+#错误编号：1错误信息：Call to a member function find() on null错误文件：E:\wamp\www\project\test\controller\test1.php错误行数：40
+
+#time:2017-11-27 08:19:18
+#错误编号：4错误信息：syntax error, unexpected '{'错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：63
+

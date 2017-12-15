@@ -1,0 +1,72 @@
+#time:2017-11-28 02:36:04
+#错误编号：4错误信息：syntax error, unexpected 'while' (T_WHILE)错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：62
+
+#time:2017-11-28 03:07:48
+#错误编号：1错误信息：Unsupported operand types错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：76
+
+#time:2017-11-28 03:07:49
+#错误编号：1错误信息：Unsupported operand types错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：76
+
+#time:2017-11-28 03:18:07
+#错误编号：4错误信息：syntax error, unexpected '(', expecting ']'错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：18
+
+#time:2017-11-28 03:18:14
+#错误编号：4错误信息：syntax error, unexpected '(', expecting ']'错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：18
+
+#time:2017-11-28 03:18:34
+#错误编号：4错误信息：syntax error, unexpected 'function' (T_FUNCTION)错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：18
+
+#time:2017-11-28 03:36:14
+#错误编号：1错误信息：Call to a member function login() on null错误文件：E:\wamp\www\project\test\controller\test1.php错误行数：45
+
+#time:2017-11-28 03:36:39
+#错误编号：1错误信息：Call to a member function login() on null错误文件：E:\wamp\www\project\test\controller\test1.php错误行数：45
+
+#time:2017-11-28 03:36:40
+#错误编号：1错误信息：Call to a member function login() on null错误文件：E:\wamp\www\project\test\controller\test1.php错误行数：45
+
+#time:2017-11-28 03:39:33
+#错误编号：64错误信息：Cannot redeclare core\lib\db\Db::__construct()错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：26
+
+#time:2017-11-28 08:06:14
+#错误编号：4错误信息：syntax error, unexpected '$this' (T_VARIABLE), expecting function (T_FUNCTION)错误文件：E:\wamp\www\project\test\model\Test.php错误行数：8
+
+#time:2017-11-28 08:18:03
+#错误编号：4错误信息：syntax error, unexpected '->' (T_OBJECT_OPERATOR)错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：41
+
+#time:2017-11-28 08:18:10
+#错误编号：1错误信息：Cannot access parent:: when current class scope has no parent错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：41
+
+#time:2017-11-28 10:34:38
+#错误编号：1错误信息：Class 'core\lib\db\DbImplement' not found错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：8
+
+#time:2017-11-28 10:34:58
+#错误编号：1错误信息：Class 'core\Func' not found错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：11
+
+#time:2017-11-28 10:52:45
+#错误编号：1错误信息：Class 'core\lib\db\PDO' not found错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：44
+
+#time:2017-11-28 10:53:01
+#异常错误信息：SQLSTATE[HY000] [1049] Unknown database 'project'异常码：1049<br/>异常文件：E:\wamp\www\project\core\lib\db\DbImplement.php异常行号：44
+
+#time:2017-11-28 11:11:23
+#错误编号：1错误信息：Class 'core\lib\db\PDO' not found错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：47
+
+#time:2017-11-28 11:58:06
+#错误编号：4错误信息：syntax error, unexpected ';'错误文件：E:\wamp\www\project\core\lib\db\Db.php错误行数：24
+
+#time:2017-11-28 12:11:49
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：47
+
+#time:2017-11-28 12:12:14
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：48
+
+#time:2017-11-28 12:12:56
+#错误编号：4错误信息：syntax error, unexpected '$v' (T_VARIABLE)错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：60
+
+#time:2017-11-28 12:13:04
+#错误编号：1错误信息：Call to a member function setFetchMode() on boolean错误文件：E:\wamp\www\project\core\lib\db\DbImplement.php错误行数：48
+
+#time:2017-11-28 13:30:41
+#错误编号：4错误信息：syntax error, unexpected 'return' (T_RETURN)错误文件：E:\wamp\www\project\core\lib\db\Assembly.php错误行数：75
+
