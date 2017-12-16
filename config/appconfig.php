@@ -31,7 +31,7 @@ return[
 	*/
 
 	//数据库类型
-	'type'=>'mysql',
+	'dbtype'=>'mysql',
 
 	//数据库地址
 	'host'=>'127.0.0.1',

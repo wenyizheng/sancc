@@ -5,6 +5,12 @@ include 'lib'.DIRECTORY_SEPARATOR.'Register.php';
 
 //自动加载器
 spl_autoload_register(function($class){
+
+    //判断操作系统
+    if(PHP_OS=='Linux'){
+        $class=str_replace('\\','/',$class);
+    }
+
 		\core\lib\Register::autoRegister($class);
 	}
 );

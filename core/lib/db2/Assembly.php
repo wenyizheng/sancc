@@ -35,6 +35,8 @@ class Assembley
 		
 	}
 
+
+
 	/*
 
 		sql信息数组填充

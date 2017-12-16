@@ -25,6 +25,11 @@ class Run extends Route
 	*/
 	public function execute()
 	{
+
+	    if(empty($this->getRouteOperate())){
+	        throw new \Exception("路由访问错误");
+        }
+
 		//获取路由信息
 		$this->routeCheck($this->getRouteOperate());
 		

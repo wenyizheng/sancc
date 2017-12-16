@@ -5,7 +5,7 @@
 
 
 //加载系统文件
-include 'core/start.php';
+include './core/Start.php';
 
 
 

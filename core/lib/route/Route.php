@@ -99,8 +99,10 @@ class Route
 	{
 		
 		//操作类
-		$operateclass=DIRECTORY_SEPARATOR.$route['module'].DIRECTORY_SEPARATOR;
-		$operateclass.='controller'.DIRECTORY_SEPARATOR.$route['controller'];
+		$operateclass='\\'.$route['module'].'\\';
+		$operateclass.='controller'.'\\'.$route['controller'];
+
+
 		if(!$operateobject=new $operateclass){
 			throw new \Exception("非法控制器");
 		}

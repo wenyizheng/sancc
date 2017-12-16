@@ -1,10 +1,9 @@
 <?php
 namespace core\lib\db2;
 
-use \core\lib\db2\DbDriver;
 
 
-class DbRelation extends DbDriver
+class DbRelation
 {
 	
 	//表的相关信息
