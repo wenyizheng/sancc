@@ -1,118 +1,33 @@
 <?php
 namespace core\lib\db2;
 
-class Assembley
+class Assembly
 {
 
-	//查询sql语句
-	public $selectsql=[
-		'select ',
-		'field'=>'*',
-		' from ',
-		'table'=>'',
-		'where'=>'',
-	];
+    private $driver='';
 
-	//插入sql语句in
-	public $insertsql=[
-		' insert into ',
-		'table'=>'',
-		'( ',
-		'field'=>'',
-		' )',
-		'values( ',
-		'values'=>'',
-		' )',
-	];
+    private $db='';
+
 
 	//条件
-	private $conditions=[
-		'where'=>'',
+	private $condition=[
+		//条件 ‘字段名’=》【‘field’=>'','relation'=>'','value'=>''】
+	    'where'=>'',
+        //表
+        'table'=>'',
+        //插入操作时的子段 '字段名'=》'字段值'
+        'field'=>'',
 	];
 
-	public function __construct()
+	public function __construct(DbDriver $driver,Db $db)
 	{
-		
+	    $this->driver=$driver;
+	    $this->db=$db;
+	    $this->condition['table']=$this->db->tablename;
 	}
 
 
 
-	/*
-
-		sql信息数组填充
-		@param string $type 类型
-		@param array  $content 数据 -可选
-	*/
-	public function sql($type,$content='')
-	{
-		switch($type){
-			//查询操作
-			case 'select':{
-
-				$this->selectsql['table']=$this->table;
-				//组建sql
-				foreach($this->conditions as $k=>$v)
-				{
-					//判断
-					switch($k)
-					{
-						//where
-						case 'where':{
-								//为空则跳出
-							if(empty($this->conditions['where']))
-								continue;
-							foreach($this->conditions['where'] as $k=>$v){
-								if(!empty($this->selectsql['where'])){
-									$this->selectsql['where'].='and '.$v['field'].$v['relation'].$v['value'];
-								}else{
-									$this->selectsql['where'].=' where '.$v['field'].$v['relation'].$v['value'];
-								}
-							}
-						}break;
-						default:continue;
-					}
-				}
-			}break;
-
-			//插入操作
-			case 'insert':{
-				$this->insertsql['table']=$this->table;
-				//设置字段
-				$this->insertsql['field']=implode(',',array_keys($content));
-				var_dump(implode(',',array_keys($content)));
-				//设置内容
-				$this->insertsql['values']=implode(',',array_values($content));
-			}break;
-			default:throw new \Exception("不识别的数据库操作");
-
-		}
-		
-
-		
-
-	}
-
-	/*
-		单数据查询
-		@param string $primarykey 主键内容
-	*/
-	public function find($primarykey='')
-	{
-
-		
-		
-		$this->sql('select');
-
-		//拼组sql数组为字符串
-		$sql='';
-		foreach($this->selectsql as $v){
-			$sql.=$v;
-		}
-		$sql.=';';
-		
-
-		return $this->query($sql);
-	}
 
 	/*
 		条件
@@ -125,7 +40,7 @@ class Assembley
 		//普通方式
 		if(!empty($param1)&&!empty($param2)&&!empty($param3)){
 			
-			$this->conditions['where'][]=['field'=>$param1,'relation'=>$param2,'value'=>$param3];
+			$this->condition['where'][$param1]=['field'=>$param1,'relation'=>$param2,'value'=>$param3];
 		}
 
 		//数组方式 ['id'=>['>',1]]
@@ -133,12 +48,12 @@ class Assembley
 
 			foreach($param1 as $k1=>$v1){
 
-				$this->conditions['where'][].=['field'=>$k1,'relation'=>$v1['0'],'value'=>$v2['1']];
+				$this->condition['where'][$k1].=['field'=>$k1,'relation'=>$v1['0'],'value'=>$v1['1']];
 				
 			}
 		}
 
-		return $this;
+		return $this->db;
 	}
 
 	/*
@@ -149,7 +64,7 @@ class Assembley
 	public function add($param1='',$param2='')
 	{
 		//获取属性
-		$message=get_object_vars($this->orm);
+		$message=$this->db->inserttable;
 
 		//普通方式
 		if(!empty($param1)&&!empty($param2)){
@@ -162,20 +77,133 @@ class Assembley
 				$message[$k]=$v;
 			}
 		}
-		
 
-		$this->sql('insert',$message);
 
-		//拼组sql数组为字符串
-		$sql='';
-		foreach($this->insertsql as $v){
-			$sql.=$v;
-		}
-		$sql.=';';
+		foreach ($message as $k=>$v){
+		    $this->condition['field'][$k]=$v;
+        }
 
-		return $this->execute($sql);
+        return $this->driver->execute($this->condition);
 	}
 
-	
+    /*
+		单数据查询
+		@param string $primarykey 主键内容  -可选
+	    @return array 查询结果
+
+	*/
+    public function find($primarykey='')
+    {
+        if(!empty($primarykey)) {
+
+            if (empty($this->db->primarykey)) {
+
+                $this->where('id', '=', $primarykey);
+            } else {
+                $this->where($this->db->primarykey, '=', $primarykey);
+            }
+        }
+
+        $res=$this->driver->query($this->condition);
+        $res=['res'=>$res,'condition'=>$this->condition];
+
+        return $res;
+    }
+
+    /*
+     * 删除
+     * @param string|array $primarykey 主建内容  -可选
+     * @return bool true|false
+     *
+     * */
+    public function delete($primarykey='')
+    {
+        //获取用户自设定的逐渐
+        $pri=$this->db->primarykey;
+        if(empty($pri)){
+            $pri='id';
+        }
+
+        //属性方式
+        if(empty($primarykey)&&!empty($this->db->inserttable[$pri])){
+            //var_dump($this->db->inserttable[$pri]);
+            $this->where($pri, '=', $this->db->inserttable[$pri]);
+        }
+
+        //字符串形式
+        if(is_string($primarykey)||is_int($primarykey)){
+            $this->where($pri, '=', $primarykey);
+        } //数组形式
+        elseif(is_array($primarykey)&&count($primarykey)>0){
+            foreach ($primarykey as $k=>$v){
+                $this->where($pri, '=', $primarykey);
+            }
+        }
+
+        $res=$this->driver->execute($this->condition);
+
+        return $res;
+    }
+
+    /*
+     * 更新
+     * @param string|array $param1 更新键名|更新键名键值数组    -可选
+     * @param string $param2 更新健值   -可选
+     * @return bool true|false
+     * */
+    public function update($param1='',$param2='')
+    {
+        //主键
+        $pri=$this->db->primarykey;
+        if(empty($pri)){
+            $pri='id';
+        }
+
+        //属性获得
+        if(!empty($this->db->inserttable)){
+
+            foreach ($this->db->inserttable as $k=>$v){
+                //找到主键时设置为查找条件
+                if($k==$pri){
+                    $this->where($k,'=',$v);
+                }else {
+                    $this->condition['field'][] = ['field' => $k, 'value' => $v];
+                }
+            }
+        }
+
+        //数组形式
+        if(is_array($param1)&&!empty($param1)){
+
+            foreach($param1 as $k=>$v){
+
+                //找到主键时设置为查找条件
+                if($k==$pri){
+                    empty($v['relation'])?$this->where($k,'=',$v):$this->where($k,$v['relation'],$v['value']);
+                }else {
+                    $this->condition['field'][] = ['field' => $k, 'value' => $v];
+                }
+            }
+        }
+
+        //字符串形式
+        if(!empty($param1)&&!empty($param2)){
+            //找到主键时设置为查找条件
+            if($param1==$pri){
+                $this->where($pri,'=',$param2);
+            }else {
+                $this->condition['field'][] = ['field' => $k, 'value' => $v];
+            }
+        }
+
+        //直接主键值
+        if((is_string($param1)||is_int($param1))&&empty($param2)){
+            $this->where($pri,'=',$param1);
+        }
+
+        $res=$this->driver->execute($this->condition);
+
+        return $res;
+    }
 
 }

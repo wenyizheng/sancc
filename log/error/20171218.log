@@ -1,0 +1,6 @@
+#time:2017-12-18 20:02:59
+#异常错误信息：未知的sql方法<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：282
+
+#time:2017-12-18 20:18:40
+#错误编号：64错误信息：Cannot use [] for reading错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：173
+

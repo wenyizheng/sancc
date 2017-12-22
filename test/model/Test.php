@@ -1,17 +1,31 @@
 <?php
 namespace test\model;
 
-use core\lib\db\Db;
+use core\lib\db2\Db;
 
 class Test extends Db
 {
-	public $table="test1";
+	public $tablename="test1";
 
 	public function login()
 	{
-		$this->name='wenyizheng';
-		$this->id=2;
-		$content=$this->where()->find();
-		return $content;
+	    //var_dump($this->add());
+        //var_dump($this->where('id','=','1')->find());
+        /*$this->name='lizheng';
+        $this->age=18;
+        var_dump($this->add());*/
+        //$this->delete([3,4]);
+        //$this->id=1;
+        //$this->delete();
+        //$this->name=123;
+        //$this->update(['id'=>6]);
+        //var_dump($this->where('id','=','5')->find());
+        $this->age=7;
+        $this->name='wenyizheng';
+        var_dump($this->add());
+        echo "<br/>";
+        echo "<pre>";
+        var_dump($this);
+        echo "</pre>";
 	}
 }

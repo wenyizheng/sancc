@@ -7,7 +7,7 @@ use \core\lib\Verify;
 use \core\lib\view\View;
 use \core\lib\view\ViewRender;
 
-use \core\lib\db\Db;
+use \core\lib\db2\Db;
 
 use \test\model\Test;
 

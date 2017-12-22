@@ -22,7 +22,7 @@ class Implement
             //mysql数据库
             case 'mysql':{
                 if(empty($this->dbobj)) {
-                    $this->dbtype=new \core\lib\db2\driver\Mysql();
+                   // $this->dbtype=new \core\lib\db2\driver\Mysql();
                 }
             }break;
 

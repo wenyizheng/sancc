@@ -1,0 +1,99 @@
+#time:2017-12-16 15:17:09
+#错误编号：1错误信息：Class 'core\lib\db2\driver\mysql' not found错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：36
+
+#time:2017-12-16 15:17:45
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：32
+
+#time:2017-12-16 15:18:14
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 15:19:22
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：34
+
+#time:2017-12-16 15:19:43
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：34
+
+#time:2017-12-16 15:19:44
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：34
+
+#time:2017-12-16 15:28:02
+#错误编号：1错误信息：Class 'core\lib\db2\driver\PDO' not found错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：30
+
+#time:2017-12-16 15:29:37
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：35
+
+#time:2017-12-16 15:29:38
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：35
+
+#time:2017-12-16 15:29:40
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：35
+
+#time:2017-12-16 15:29:41
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：35
+
+#time:2017-12-16 15:29:41
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：35
+
+#time:2017-12-16 15:48:55
+#错误编号：1错误信息：Class 'core\lib\db2\driver\PDO' not found错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：46
+
+#time:2017-12-16 21:52:13
+#异常错误信息：PDO连接错误<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:52:42
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:53:07
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:53:08
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:53:12
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:54:34
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:54:48
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:54:49
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 21:59:05
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:03:50
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:03:59
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:04:15
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:04:16
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:04:16
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:04:16
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:04:16
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:13:00
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:13:01
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:18:26
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+
+#time:2017-12-16 22:19:52
+#异常错误信息：PDO连接错误  SQLSTATE[HY000] [1040] Too many connections<br/>异常文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php异常行号：33
+

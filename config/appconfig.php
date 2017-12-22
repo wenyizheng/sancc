@@ -37,13 +37,13 @@ return[
 	'host'=>'127.0.0.1',
 
 	//数据库名称                                                                                  
-	'dbname'=>'project1',
+	'dbname'=>'sancc',
 
 	//数据库用户名
 	'user'=>'root',
 
 	//数据库密码
-	'password'=>'',
+	'password'=>'12315',
 
 	//端口
 	'port'=>'3306',

@@ -1,73 +1,82 @@
 <?php
 namespace core\lib\db2;
 
-
+use core\lib\db2\Db;
 
 class DbRelation
 {
-	
-	//表的相关信息
-	protected $asstable=[
-		'table'=>'',
-	];
 
+    protected $db='';
 
-	public function __set($key,$value){
-		$this->key=$value;
-	}
+    //进行映射的数据库对象
+    protected $relationdb='';
 
 
 
-	/*
+    public function __construct(Db $db)
+    {
+        $this->db=$db;
 
-		向映射对象中添加字段
-		@param string|array $param1 键名|键值对数组
-		@param string       $param2 键值            -可选
-	*/
-	public function Relationfeild($param1,$param2='')
-	{
-		//字符串形式
-		if(!empty($param1)||!empty($param2)){
-			$this->$param1=$param2;
-		}
+        $this->relationdb=$db;
+    }
+    /*
+     * 设置表信息
+     * */
+    public function settable($message)
+    {
+        if(!is_array($message)){
+            throw new \Exception("表信息错误");
+        }
 
-		//数组方式
-		if(is_array($param1)){
-			
-			foreach($param1 as $k=>$v){
-				$this->$k=$v;
-			}
+        foreach ($message as $k1=>$v1){
+            $this->db->tableinfo[$v1['Field']]=[
+                'Type'=>$v1['Type'],
+                'Null'=>$v1['Null'],
+                'Key'=>$v1['Key'],
+                'Default'=>$v1['Default'],
+                'Extra'=>$v1['Extra'],
+            ];
 
-		}
-	}
+            $this->relationdb->tableinfo[$v1['Field']]=[
+                'Type'=>$v1['Type'],
+                'Null'=>$v1['Null'],
+                'Key'=>$v1['Key'],
+                'Default'=>$v1['Default'],
+                'Extra'=>$v1['Extra'],
+            ];
+        }
 
+    }
 
-	/*
-		获取表的相关信息
-	*/
-	public function getTable()
-	{
+    /*
+     *
+     * 设置映射对象
+     *
+     * */
+    public function setRelation($method,$returnres)
+    {
+        switch($method){
+            case 'find':{
+                foreach ($returnres['res'] as $k=>$v){
+                        foreach ($v as $k2 => $v2) {
+                            //把查询结果放到对象中
+                            $this->relationdb->table[$k2] = $v2;
+                        }
+                }
+                //返回结果
+                return $this->relationdb;
+            }break;
+            /*case 'add':{
 
-	}
+            }break;*/
+            /*case 'update':{
+                var_dump($returnres);
+                die();
+            }break;*/
+            /*case 'delete':{
 
-	/*
-		设置表的相关信息
-		@param string|array $param1 键名|键值对数组
-		@param string 		$param2 键值 			-可选
-	*/
-	public function setTable($param1,$param2='')
-	{
-		//字符串形式
-		if(!empty($param1)&&!empty($param2)){
-			$this->asstable[$param1]=$param2;
-		}
+            }break;*/
+        }
+    }
 
-		//数组方式
-		if(is_array($param1)){
-
-			foreach($param1 as $k=>$v){
-				$this->asstable[$k]=$v;
-			}
-		}
-	}
 }

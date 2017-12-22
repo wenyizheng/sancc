@@ -1,0 +1,237 @@
+#time:2017-12-17 15:53:09
+#错误编号：2048错误信息：Accessing static property core\lib\db2\driver\Mysql::$pdo as non static错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：56
+
+#time:2017-12-17 15:53:44
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::prepare()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：56
+
+#time:2017-12-17 15:55:28
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::prepare()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：52
+
+#time:2017-12-17 15:55:29
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::prepare()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：52
+
+#time:2017-12-17 15:55:29
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::prepare()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：52
+
+#time:2017-12-17 15:57:03
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::prepare()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/driver/Mysql.php错误行数：53
+
+#time:2017-12-17 16:25:39
+#错误编号：1错误信息：Cannot access protected property test\model\Test::$tableinfo错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/DbRelation.php错误行数：25
+
+#time:2017-12-17 16:40:37
+#错误编号：1错误信息：Call to undefined method core\lib\db2\Assembly::query()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Assembly.php错误行数：107
+
+#time:2017-12-17 17:44:50
+#错误编号：1错误信息：Call to undefined method core\lib\db2\Assembly::selectSql()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Assembly.php错误行数：32
+
+#time:2017-12-17 17:44:51
+#错误编号：1错误信息：Call to undefined method core\lib\db2\Assembly::selectSql()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Assembly.php错误行数：32
+
+#time:2017-12-17 17:44:52
+#错误编号：1错误信息：Call to undefined method core\lib\db2\Assembly::selectSql()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Assembly.php错误行数：32
+
+#time:2017-12-17 17:53:49
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 17:54:15
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 17:55:57
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 17:55:58
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 17:55:58
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 17:55:59
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 18:01:48
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 18:01:49
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 18:02:03
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 18:03:50
+#错误编号：4096错误信息：Argument 1 passed to core\lib\db2\Assembly::__construct() must be an instance of core\lib\db2\DbDriver, instance of test\model\Test given, called in /usr/local/httpd2/htdocs/project/core/lib/db2/Db.php on line 47 and defined错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Assembly.php错误行数：15
+
+#time:2017-12-17 18:03:51
+#错误编号：4096错误信息：Argument 1 passed to core\lib\db2\Assembly::__construct() must be an instance of core\lib\db2\DbDriver, instance of test\model\Test given, called in /usr/local/httpd2/htdocs/project/core/lib/db2/Db.php on line 47 and defined错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Assembly.php错误行数：15
+
+#time:2017-12-17 19:08:02
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 19:08:31
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:16:30
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 19:16:31
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 19:17:15
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 19:17:15
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 19:17:15
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 19:17:15
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：78
+
+#time:2017-12-17 19:19:17
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:18
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:23
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:50
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:51
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:51
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:51
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:51
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:51
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:51
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:52
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:52
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:52
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:52
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:52
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:53
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:53
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:53
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:53
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:53
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:53
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:54
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:54
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:19:54
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:12
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:29
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:30
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:31
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:44
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:44
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:45
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:21:45
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:23:48
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:23:49
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:23:49
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:23:49
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:23:49
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:23:50
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:23:50
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:27:17
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:27:17
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:27:17
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:27:18
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:27:18
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:27:59
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:29:19
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:29:57
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:30:49
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+
+#time:2017-12-17 19:32:04
+#错误编号：1错误信息：Call to undefined method core\lib\db2\driver\Mysql::find()错误文件：/usr/local/httpd2/htdocs/project/core/lib/db2/Db.php错误行数：79
+

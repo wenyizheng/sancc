@@ -10,27 +10,37 @@ abstract class DbDriver
 		@param string $table 表名
 		@return array 信息数组
 	*/
-	abstract function getTable($table);
+	abstract function getTable($tablename);
 
 	/*
-		拼接查询语句
-	*/ 
-	abstract function getSelect();
+	 * 查询语句
+	 * */
+	abstract function query($condition);
 
 	/*
-		拼接插入语句
-	*/
-	abstract function getInsert();
+	 * 执行语句
+	 * */
+	abstract function execute($condition);
 
 	/*
-		拼接删除语句
-	*/
-	abstract function getDelete();
+	 * 查询拼接
+	 * */
+	abstract function selectSql($condition);
 
 	/*
-		拼接保存语句
-	*/
-	abstract function getSave();
+	 * 插入拼接
+	 * */
+	abstract function insertSql($condition);
+
+	/*
+	 * 删除拼接
+	 * */
+	abstract function deleteSql($condition);
+
+	/*
+	 * 更新拼接
+	 * */
+	abstract function updateSql($condition);
 
 
 }
