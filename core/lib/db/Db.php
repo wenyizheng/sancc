@@ -1,114 +1,143 @@
 <?php
 namespace core\lib\db;
 
-use \core\lib\Func;
+
 use \core\lib\db\Assembly;
-use \core\lib\db\DbImplement;
-use \core\lib\db\DbOrm;
+use core\lib\db\driver\Mysql;
+use \core\lib\db\Implement;
+use \core\lib\db\DbRelation;
+use core\lib\Func;
+
 class Db
 {
 
-	//数据库对象
-	protected $dbobj=null;
-
-	//数据库连接配置
-	protected $dbconfig=null;
-
-	//sql拼接对象
+	//条件类对象
 	protected $assembly=null;
+	
+	//执行类对象
+	protected $driver=null;
 
-	//sql执行对象
-	protected $implement=null;
+	//映射类对象
+	protected $dbrelation=null;
 
-	//字段
-	protected $orm=null;
+    //需要映射的方法
+    public $relationmethods=[
+        'find',
+    ];
+
+	//数据表信息
+    public $tableinfo=[];
+
+    //表名
+    public $tablename='';
+
+    //表的数据信息
+    public $table=[];
+
+    //表的插入信息
+    public $inserttable=[];
 
 
 	public function __construct()
 	{
+        //创建驱动类
+        if(is_null($this->driver)) {
+            $dbtype = Func::Config('dbtype');
+            switch ($dbtype) {
+                case 'mysql':
+                    $this->driver = Mysql::getInstance();
+                    break;
+                //...
+                default:
+                    throw new \Exception("未知的数据库类型");
+            }
+        }
 
+        //创建条件类对象
+        if(is_null($this->assembly)){
 
-		if(is_null($this->implement)){
-			
-			$this->implement=new DbImplement();
+            $this->assembly=new Assembly($this->driver,$this);
+        }
+
+		//创建映射类对象
+		if(is_null($this->dbrelation)){
+
+			$this->dbrelation=new DbRelation($this);
 		}
 
-		if(is_null($this->orm)){
-			$this->orm=new DbOrm();
-		}
+        //获取表的基本信息
+        $tableinfo=$this->driver->getTable($this->tablename);
+        //设置基本信息
+        $this->dbrelation->settable($tableinfo);
 
-
-		if(is_null($this->assembly)){
-			$this->assembly=new Assembly();
-		}
-	}
-
-
-	public function __set($key,$value)
-	{	
-		/*if(isset($this->assembly)){
-			echo $key;
-			foreach(get_object_vars($this) as $k=>$v){
-					$this->assembly->$k=$v;
-			}
-		}*/
-
-		if(is_object($this->orm)){
-			$this->orm->$key=$value;
-		}
-	}
-
-	public function __get($key)
-	{
-
-		/*if(!empty($this->field[$key])){
-			return $this->field[$key];
-		}*/
-	}
-
-	public function __call($name,$param)
-	{
-		
-		//检测是否为拼接sql函数
-		if(method_exists($this->assembly, $name)){
-			$res=call_user_func_array([$this->assembly,$name],$param);
-			return $res;
-		}
 	}
 
 	/*
-		
-		查询操作执行
-		@param string $sql sql语句
-		@return object 查询完成后的对象
-	*/
-	public function query($sql)
-	{
+	 * 链式操作方法
+	 * 向assembly中查找
+	 *
+	 * */
+	public function __call($method,$arguments)
+    {
+        $returnres='';
 
-		$queryres=$this->implement->query($sql);
+        //判断是否是assembly中的方法
+        if(method_exists($this->assembly,$method)){
+            $returnres=call_user_func_array([$this->assembly,$method],$arguments);
 
-    
-		$queryarray=[];
-		foreach($queryres as $v){
-			$queryarray+=$v;
-		}
-		foreach($queryarray as $k=>$v){
-			//为orm添加属性
-			$this->orm->$k=$v;
-		}
-		
-		return $this->orm;
-	}
+            //判断进行的操作，是否需要映射
+            if(in_array($method,$this->relationmethods)){
+                return $this->dbrelation->setRelation($method, $returnres);
+            }else {
+                return $returnres;
+            }
+        }
 
-	/*
-		
-		增删改操作执行
-		@param string $sql sql语句
-		@return object 操作完成后的对象
-	*/
-	public function execute($sql)
-	{
-		return $this->implement->execute($sql);
-	}
-	
+       /* //判断是否是driver中的方法
+        if(method_exists($this->driver,$method)){
+            $returnres=call_user_func_array([$this->driver,$method],$arguments);
+
+            echo $method;
+            if($returnres) {
+                //调用映射类进行映射
+                $this->relational($method, $returnres);
+            }else{
+                throw new \Exception('数据库操作方法错误');
+            }
+
+        }*/
+
+
+
+    }
+
+    /*
+     * 查找数据库
+     *
+     * */
+    public function __get($name)
+    {
+        // TODO: Implement __get() method.
+
+        if(!empty($this->table[$name])){
+
+            return $this->table[$name];
+
+        }
+    }
+
+    /*
+     * 插入时设置的属性
+     *
+     * */
+    public function __set($name, $value)
+    {
+        // TODO: Implement __set() method.
+
+        $this->inserttable[$name]=$value;
+    }
+
+
+
+
 }

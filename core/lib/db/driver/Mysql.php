@@ -5,9 +5,9 @@
  * Date: 17-12-15
  * Time: 下午9:05
  */
-namespace core\lib\db2\driver;
+namespace core\lib\db\driver;
 
-use \core\lib\db2\DbDriver;
+use \core\lib\db\DbDriver;
 use core\lib\Func;
 
 class Mysql extends DbDriver

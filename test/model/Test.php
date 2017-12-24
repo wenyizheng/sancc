@@ -1,7 +1,7 @@
 <?php
 namespace test\model;
 
-use core\lib\db2\Db;
+use core\lib\db\Db;
 
 class Test extends Db
 {

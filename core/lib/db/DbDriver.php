@@ -1,5 +1,5 @@
 <?php
-namespace core\lib\db2;
+namespace core\lib\db;
 
 abstract class DbDriver
 {

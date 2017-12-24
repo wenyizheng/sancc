@@ -1,7 +1,7 @@
 <?php
-namespace core\lib\db2;
+namespace core\lib\db;
 
-use core\lib\db2\Db;
+use core\lib\db\Db;
 
 class DbRelation
 {
@@ -66,16 +66,7 @@ class DbRelation
                 //返回结果
                 return $this->relationdb;
             }break;
-            /*case 'add':{
 
-            }break;*/
-            /*case 'update':{
-                var_dump($returnres);
-                die();
-            }break;*/
-            /*case 'delete':{
-
-            }break;*/
         }
     }
 
