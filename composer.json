@@ -1,0 +1,16 @@
+{
+    "name": "wenyizheng/sancc",
+    "description": "Lightweight PHP framework",
+    "type": "project",
+    "require": {
+        "php": "5.5"
+    },
+    "license": "Apache2",
+    "authors": [
+        {
+            "name": "wenyizheng",
+            "email": "phpwenyizheng@163.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
