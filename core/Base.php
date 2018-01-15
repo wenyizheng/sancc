@@ -10,7 +10,6 @@ spl_autoload_register(function($class){
     if(PHP_OS=='Linux'){
         $class=str_replace('\\','/',$class);
     }
-
 		\core\lib\Register::autoRegister($class);
 	}
 );
@@ -34,12 +33,13 @@ register_shutdown_function(function(){
 	}
 });
 
+$routeobj=\core\lib\route\Route::getInstance();
 //加载用户配置文件
-
-
+$routefile=include PROJECT.'config'.DS.'route.php';
+$registerobj=\core\lib\route\RouteRegister::getInstance();
+$registerobj->register($routefile);
 
 //调用路由
-//\core\lib\Route::route();
 $route=new \core\lib\Run();
 $route->execute();
 

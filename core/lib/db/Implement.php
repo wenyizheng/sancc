@@ -48,13 +48,4 @@ class Implement
         }
 	}
 
-
-	/*
-	 * 数据库对象映射
-	 *
-	 * */
-	public function objRelation()
-    {
-
-    }
 }

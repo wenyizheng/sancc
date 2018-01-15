@@ -6,7 +6,7 @@
 
 return[
 	//模块名称
-	'app'=>'test',
+	'app'=>'',
 
 	//GET参数匹配模式
 	//默认 默认参数获取方式 1或不填
@@ -26,6 +26,11 @@ return[
 		'name'=>'wenyizheng',
 	],
 
+    //空操作名称
+    'empty_operate'=>'error',
+    //空控制器名称
+    'empty_controller'=>'Error',
+
 	/*
 		数据库配置
 	*/
@@ -37,18 +42,64 @@ return[
 	'host'=>'127.0.0.1',
 
 	//数据库名称                                                                                  
-	'dbname'=>'sancc',
+	'dbname'=>'',
 
 	//数据库用户名
 	'user'=>'root',
 
 	//数据库密码
-	'password'=>'12315',
+	'password'=>'',
 
 	//端口
 	'port'=>'3306',
 
 	//字符集
 	'charset'=>'UTF8',
-	
+
+
+    /*
+     * 路由注册
+     * */
+    'routefile'=>'route',
+
+    /*
+     * Cookie设置
+     * */
+    'cookie'=>[
+        //cookie名称前缀
+        'prefix'=>'',
+        //保存时间
+        'expire'=>'',
+        //保存路径
+        'path'=>'',
+        //有效域名
+        'domain'=>'',
+        //安全传输
+        'secure'=>false,
+
+    ],
+
+    /*
+     * Session设置
+     * */
+    'session'=>[
+        //自动初始化
+        'auto'=>true,
+        //驱动设置 默认file 支持redis
+        'driver'=>'redis',
+        //保存路径
+        'path'=>'',
+        //前缀
+        'prefix'=>'sancc',
+        //过期时间(秒)
+        'timeout'=>1800,
+
+        //redis设置
+        'redis'=>[
+            //地址
+            'host'=>'127.0.0.1',
+            //端口
+            'port'=>6379,
+        ],
+    ],
 ];

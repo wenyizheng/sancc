@@ -4,6 +4,7 @@ namespace core\lib;
 use \core\lib\config\BuildConfig;
 use \core\lib\request\RequestParam;
 use \core\lib\Verify;
+use \core\lib\route\RouteRegister;
 
 class Func
 {
@@ -116,5 +117,26 @@ class Func
 
 		return self::$verifyobj;
 	}
+
+
+	/*
+	 * 定义路由
+	 * @param string|array $param1 访问方法|定义路由与实际操作的键值数组
+     * @param string       $param2 定义的路由 -可选
+     * @param string       $param3 实际的操作 -可选
+     * @return bool true|false
+	 * */
+	public static function Route($param1,$param2='',$param3='')
+    {
+        $registerobj=RouteRegister::getInstance();
+
+        if(is_array($param1)){
+            $returnres=$registerobj->register($param1);
+        }else{
+            $returnres=$registerobj->register($param1,$param2,$param3);
+        }
+
+        return $returnres;
+    }
 
 }

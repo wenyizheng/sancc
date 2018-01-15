@@ -16,12 +16,5 @@ class View
 		var_dump(__DIR__);
 	}
 
-	/*
-		视图文件渲染
-		@param string $path 路径
-	*/
-	public function render($path)
-	{
-		
-	}
+
 }

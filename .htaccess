@@ -1,4 +1,4 @@
 #重定向
 Options +FollowSymlinks
 RewriteEngine On
-RewriteRule ^project\/index\.php(.*) ^project\/index.php
+RewriteRule ^/index\.php(.*) ^/index.php

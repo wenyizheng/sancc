@@ -9,7 +9,6 @@ use core\lib\Func;
 
 class ViewRender
 {
-	//1695587776
 	//文件路径
 	protected $path='';
 
@@ -86,9 +85,6 @@ class ViewRender
 
 		$htmldir.=DS.'view'.substr($path,strpos($path,Func::config('app'))+strlen(Func::config('app'))).'.html';
 
-		
-
-
 		//检测模板文件是否存在
 		if(!file_exists($htmldir)){
 			throw new \Exception('模板文件不存在');
@@ -97,7 +93,6 @@ class ViewRender
 
 		$this->contents=file_get_contents($htmldir);
 
-		//E:\wamp\www\project\core\..\test\cache\template\test\testview.php
 		$beginpath=substr($path,0,strpos($path,Func::config('app'))+strlen(Func::config('app'))).DS.'cache'.DS.'template'.DS;
 		
 		$endpath=substr($path,strpos($path,Func::config('app'))+strlen(Func::config('app')));
@@ -116,10 +111,7 @@ class ViewRender
 		}
 		
 		$this->path=$path.'.php';
-		
 
-		//$this->path=PROJECT.Func::config('app').DS.'cache'.DS.'template'.DS.array_pop($path).'.php';
-		
 		if($this->contents===false){
 			throw new \Exception('模板文件读取错误');
 		}

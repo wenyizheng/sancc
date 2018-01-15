@@ -29,9 +29,5 @@ class Files
 		return $file;
 	}
 
-	/*
-		文件移动
-
-	*/
 	
 }

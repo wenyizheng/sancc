@@ -2,10 +2,7 @@
 namespace core\lib\db;
 
 
-use \core\lib\db\Assembly;
 use core\lib\db\driver\Mysql;
-use \core\lib\db\Implement;
-use \core\lib\db\DbRelation;
 use core\lib\Func;
 
 class Db
@@ -92,22 +89,6 @@ class Db
                 return $returnres;
             }
         }
-
-       /* //判断是否是driver中的方法
-        if(method_exists($this->driver,$method)){
-            $returnres=call_user_func_array([$this->driver,$method],$arguments);
-
-            echo $method;
-            if($returnres) {
-                //调用映射类进行映射
-                $this->relational($method, $returnres);
-            }else{
-                throw new \Exception('数据库操作方法错误');
-            }
-
-        }*/
-
-
 
     }
 

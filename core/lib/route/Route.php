@@ -1,7 +1,10 @@
 <?php
 namespace core\lib\route;
-use \core\lib\BuildConfig;
 
+//use \core\lib\BuildConfig;
+use \core\lib\route\RouteRegister;
+use \core\lib\route\RouteAnalysis;
+use \core\lib\Func;
 
 /*
 路由文件
@@ -9,6 +12,8 @@ use \core\lib\BuildConfig;
 
 class Route
 {
+
+    protected static $instance=null;
 
 	//请求信息
 	protected $request='';
@@ -19,16 +24,55 @@ class Route
 	//请求操作信息
 	protected $accessoperate='';
 
+	//路由注册对象
+    protected $routeregister='';
+
+    //路由解析对象
+    protected $routeanalysis='';
+
+
+    /*
+     *
+     * 自定义的路由
+     *
+     */
+
+    //全方法
+    public static $allroute=[];
+
+    //GET方法
+    public static $getroute=[];
+
+    //POST方法
+    public static $postroute=[];
+
+    //delete方法
+    public static $deleteroute=[];
+
+    //PATCH方法
+    public static $patchroute=[];
+
+    //PUT方法
+    public static $putroute=[];
 
 
 
-	public function __construct()
+
+	private function __construct()
 	{
-		$this->request=$_SERVER;
-
-		$this->accessuri=$_SERVER['REQUEST_URI'];
 
 	}
+
+	public static function getInstance()
+    {
+        if(is_null(self::$instance)){
+            self::$instance=new self();
+        }
+
+        return self::$instance;
+    }
+
+
 
 	/*
 		获取路由访问模块|控制器|操作
@@ -39,6 +83,18 @@ class Route
 	{
 		//获取访问请求
 		$accessuri=str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['REQUEST_URI']);
+        $methodproperty=strtolower($_SERVER['REQUEST_METHOD']).'route';
+
+        $sign=md5($accessuri,true);
+
+        //判断是否是定义的路由
+        if(!empty(self::$allroute[$sign])){
+            $accessuri=str_replace($_SERVER['SCRIPT_NAME'], '', self::$allroute[$sign]['operate']);
+        }elseif(!empty($methodproperty[$sign])){
+            $accessuri=str_replace($_SERVER['SCRIPT_NAME'], '', self::${$methodproperty}[$sign]['operate']);
+        }
+
+
 		
 		//拆分
 		$reg="#(?<module>((?<=/)\w+(?=/)))/(?<controller>((?<=/)\w+(?=/)))/(?<operate>((?<=/)\w+((?=[/?])|$)))#";
@@ -50,7 +106,6 @@ class Route
 				$this->accessoperate[$k]=$v;
 			}
 		}
-
 
 		return $this->accessoperate;
 		
@@ -75,16 +130,26 @@ class Route
 		if(!file_exists($check)){
 			throw new \Exception('非法模块');
 		}
-		$check.=DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.$route['controller'].'.php';
-		if(!file_exists($check)){
-			
-			throw new \Exception('非法控制器');
+
+		if(!file_exists($check.DS.'controller'.DS.$route['controller'].'.php')){
+			//查找空控制器
+            if(!file_exists($check.DS.'controller'.DS.Func::config('empty_controller').'.php')) {
+                throw new \Exception('非法控制器');
+            }else{
+                $route['controller']=Func::config('empty_controller');
+                $this->accessoperate['controller']=Func::config('empty_controller');
+            }
 		}
-		
 		$operateobject=$this->findOperateClass($route);
+
 		if(!is_object($operateobject)||empty($route['operate'])||!method_exists($operateobject,$route['operate'])){
-			
-			throw new \Exception('非法操作');
+			//查找空操作
+		    if(!method_exists($operateobject,Func::Config('empty_operate'))) {
+                throw new \Exception('非法操作');
+            }else{
+		        $route['operate']=Func::Config('empty_operate');
+		        $this->accessoperate['operate']=Func::Config('empty_operate');
+            }
 		}
 		
 		return true;

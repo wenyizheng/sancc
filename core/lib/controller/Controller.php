@@ -52,4 +52,12 @@ class Controller
 	{
 		return Func::Verify($faild,$rule,$message);
 	}
+
+
+
+	public function __call($method,$arrguments)
+    {
+
+    }
+
 }

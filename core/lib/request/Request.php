@@ -1,6 +1,5 @@
 <?php
 namespace core\lib\request;
-use \core\lib\BuildConfig;
 
 
 
@@ -76,17 +75,25 @@ class Request
 		if(!file_exists($check)){
 			throw new \Exception('非法模块');
 		}
-		$check.=DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.$route['controller'].'.php';
-		if(!file_exists($check)){
-			
-			throw new \Exception('非法控制器');
-		}
-		
-		$operateobject=$this->findOperateClass($route);
-		if(!is_object($operateobject)||empty($route['operate'])||!method_exists($operateobject,$route['operate'])){
-			
-			throw new \Exception('非法操作');
-		}
+
+        if(!file_exists($check.DS.'controller'.DS.$route['controller'].'.php')){
+            //查找空控制器
+            if(!file_exists($check.DS.'controller'.DS.Func::config('empty_controller').'.php')) {
+                throw new \Exception('非法控制器');
+            }else{
+                $route['controller']=Func::config('empty_controller');
+            }
+        }
+        $operateobject=$this->findOperateClass($route);
+
+        if(!is_object($operateobject)||empty($route['operate'])||!method_exists($operateobject,$route['operate'])){
+            //查找空操作
+            if(!method_exists($operateobject,Func::Config('empty_operate'))) {
+                throw new \Exception('非法操作');
+            }else{
+                $route['operate']=Func::Config('empty_operate');
+            }
+        }
 		
 		return true;
 	}
@@ -105,7 +112,8 @@ class Request
 		if(!$operateobject=new $operateclass){
 			throw new \Exception("非法控制器");
 		}
-		
+
+
 		return $operateobject;
 	}
 }
